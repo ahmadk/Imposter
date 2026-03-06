@@ -81,7 +81,11 @@ Generics are fully supported. see more [here](https://themidnightgospel.github.i
 
 Imposter supports not only methods, but also properties, events and indexers.
 
-## Implicit and Explicit Modes
+## 🔀 Implicit and Explicit Modes
+
+Choose how unmocked members behave. **Implicit** mode returns defaults silently — great for prototyping. **Explicit** mode throws on any call without a setup — ideal for unit tests that must be precise.
+
+See more [here](https://themidnightgospel.github.io/Imposter/latest/implicit-vs-explicit/)
 
 ## 🧵 Thread-safe by design
 
