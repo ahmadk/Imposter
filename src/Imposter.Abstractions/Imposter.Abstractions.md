@@ -16,12 +16,16 @@ Public API for consumers and the generator. Lives in `src/Imposter.Abstractions`
   - Example: `[GenerateImposter(typeof(IMyService))]`.
   - Property: `PutInTheSameNamespace` (default true) controls generated namespace.
 
+- `Arg` / `AnyArgMarker` (`src/Imposter.Abstractions/Arg.cs`)
+  - `Arg.Any` — untyped wildcard property returning `AnyArgMarker`, implicitly converts to `Arg<T>.Any()` for any parameter type.
+
 - `Arg<T>` (`src/Imposter.Abstractions/Arg.cs`)
   - Matchers for input parameters in setups:
     - `Arg<T>.Is(predicate)` / `Arg<T>.Is(value)`
     - `Arg<T>.Any()`
     - `Arg<T>.IsDefault()`
     - `Arg<string>.MatchesRegex(string)`
+    - `implicit operator Arg<T>(AnyArgMarker)` — enables `Arg.Any` shorthand
 
 - `OutArg<T>` (`src/Imposter.Abstractions/Arg.cs`)
   - `OutArg<T>.Any()` for matching `out` parameters.

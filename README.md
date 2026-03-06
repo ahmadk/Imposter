@@ -3,15 +3,17 @@
 </p>
 
 <p align="center">
-    Fast and Memory-Efficient Mocking Library
+    Mocking library with the perfect blalance of Performance and Intuitive API
 </p>
 
 [![Build, Test, and Format verification](https://github.com/themidnightgospel/Imposter/actions/workflows/build-and-test.yml/badge.svg?branch=master)](https://github.com/themidnightgospel/Imposter/actions/workflows/build-and-test.yml)
 [![Nuget](https://img.shields.io/nuget/v/Imposter.svg)](https://www.nuget.org/packages/Imposter)
 
-Imposter is a mocking library that's using roslyn source generators to achieve high performance and low memory footprint.
+## 🧘Balanced Performance and Developer Experience
 
-Visit the [Docs](https://themidnightgospel.github.io/Imposter/) for more information
+If raw performance were the only goal, we’d all be coding in Assembler. Imposter delivers top-tier performance without sacrificing a natural, intuitive API.
+
+While being ~10× faster than NSubstitute and up to ~50× faster than Moq in common mocking scenarios, Imposter is not the fastest mocking library available. Instead, it focuses on achieving a balance between performance and API ease of use.
 
 ## 🚀 Quick Start
 
@@ -21,9 +23,7 @@ Add nuget package reference:
 dotnet add package Imposter
 ```
 
-Pick an interface or non-sealed class that you would like to generate an imposter for.
-
-Say we have a below interface
+Pick a target
 
 ```csharp
 
@@ -41,7 +41,7 @@ Use `[GenerateImposter]` attribute in your **tests** project, this will generate
 [assembly: GenerateImposter(typeof(Application.Domain.ICalculator))]
 ```
 
-Then use can use the generated imposter in your tests
+Use the generated imposter
 
 ```csharp
 using System.Threading.Tasks;
@@ -64,33 +64,32 @@ calculator.Add(1, 2); // 1
 calculator.Add(1, 2); // 2
 ```
 
-## ⚡ Built for speed
-
-Benchmarks show Imposter running ~10× faster than NSubstitute and up to ~200× faster than Moq in common mocking scenarios. See benchmarks below.
 
 ## 🛡️ Strongly typed all the way
 
-Loosely typed callbacks often lead to runtime exceptions. **Imposter** enforces strong typing across the entire mocking pipeline, ensuring errors are caught at compile time. see more [here](https://themidnightgospel.github.io/Imposter/latest/methods/callbacks/#method-callbacks)
-
-## 🧵 Thread-safe by design
-
-Imposter is built to work reliably in multi-threaded and parallel test environments.
+Loosely typed callbacks can easily cause runtime exceptions. Imposter enforces strong typing across the entire mocking pipeline, eliminating type mismatch errors for good. See more [here](https://themidnightgospel.github.io/Imposter/latest/methods/callbacks/#method-callbacks)
 
 ## 🎭 Interfaces and classes
 
-Not limited to interfaces — Imposter can impersonate non-sealed classes and their protected members.
+Not limited to interfaces — Imposter can impersonate non-sealed classes and their protected members. See more [here](https://themidnightgospel.github.io/Imposter/latest/methods/protected-members/)
 
 ## 🧬 Full generic support
 
-Generics are fully supported.
+Generics are fully supported. see more [here](https://themidnightgospel.github.io/Imposter/latest/generics/)
 
 ## 🧩 Mock any member
 
 Imposter supports not only methods, but also properties, events and indexers.
 
+## Implicit and Explicit Modes
+
+## 🧵 Thread-safe by design
+
+Imposter is built to work reliably in multi-threaded and parallel test environments.
+
 ## ⏱️ Benchmark
 
-We benchmarked the simple method-impersonation scenario: we set up a `Square` method to return `input * input` and ran it for 1, 10, 100, and 1000 iterations.
+`Square` method is setup to return `input * input` and ran it for 1, 10, 100, and 1000 iterations. see [benchmarks](https://github.com/themidnightgospel/Imposter/tree/master/benchmarks/Imposter.Benchmarks) for more details
 
 ```csharp
 public interface ICalculator
@@ -99,24 +98,28 @@ public interface ICalculator
 }
 ```
 
-| Method      | Iteration |     Execution Time | Allocated Memory |
-|-------------|-----------|-------------------:|-----------------:|
-| Moq         | 1         |        69,346.1 ns |         13.05 KB |
-| NSubstitute | 1         |         1,976.2 ns |          7.84 KB |
-| FakItEasy   | 1         |         2,006.7 ns |          5.84 KB |
-| Imposter    | 1         |       **194.3 ns** |       **2.4 KB** |
-| Moq         | 10        |       686,282.9 ns |        115.73 KB |
-| NSubstitute | 10        |        11,201.6 ns |         29.29 KB |
-| FakItEasy   | 10        |        12,399.0 ns |         38.81 KB |
-| Imposter    | 10        |     **1,896.7 ns** |     **22.37 KB** |
-| Moq         | 100       |     6,804,897.3 ns |       1416.91 KB |
-| NSubstitute | 100       |       335,390.6 ns |        247.26 KB |
-| FakItEasy   | 100       |       258,220.2 ns |       1033.38 KB |
-| Imposter    | 100       |    **34,011.7 ns** |    **222.05 KB** |
-| Moq         | 1000      |    99,710,929.5 ns |      42275.19 KB |
-| NSubstitute | 1000      |    26,986,939.0 ns |       2420.82 KB |
-| FakItEasy   | 1000      |    18,997,374.5 ns |      77101.74 KB |
-| Imposter    | 1000      | **2,452,970.7 ns** |   **2218.93 KB** |
+| Method      | Iteration |                Mean |     Allocated |
+|------------ |-----------|--------------------:|--------------:|
+| Moq         | 1         |        78,776.14 ns |       13148 B |
+| NSubstitute | 1         |         1,624.16 ns |        7664 B |
+| FakeItEasy  | 1         |         1,939.11 ns |        5617 B |
+| Rocks       | 1         |            37.91 ns |         304 B |
+| Imposter    | 1         |       **188.72** ns |    **2408** B |
+| Moq         | 10        |     1,153,399.52 ns |      117789 B |
+| NSubstitute | 10        |        11,919.78 ns |       27897 B |
+| FakeItEasy  | 10        |         9,464.72 ns |       35727 B |
+| Rocks       | 10        |           627.42 ns |        1888 B |
+| Imposter    | 10        |     **1,712.15** ns |   **22424** B |
+| Moq         | 100       |     7,488,213.33 ns |     1445159 B |
+| NSubstitute | 100       |       205,099.09 ns |      222676 B |
+| FakeItEasy  | 100       |       172,337.20 ns |      732299 B |
+| Rocks       | 100       |        25,495.06 ns |       17728 B |
+| Imposter    | 100       |    **30,005.13** ns |  **222584** B |
+| Moq         | 1000      |    98,890,235.56 ns |    43233637 B |
+| NSubstitute | 1000      |    19,440,858.58 ns |     2174740 B |
+| FakeItEasy  | 1000      |    15,170,287.96 ns |    46895901 B |
+| Rocks       | 1000      |     1,868,905.85 ns |      176128 B |
+| Imposter    | 1000      | **2,256,458.40** ns | **2224184** B |
 
 
 Benchmark Environment
@@ -132,56 +135,28 @@ DefaultJob : .NET 8.0.21 (8.0.21, 8.0.2125.47513), X64 RyuJIT x86-64-v3
 <details>
 <summary>Benchmarks on macOS (Apple M2 Pro)</summary>
 
-Mean execution time
-
-| Method      | Iteration | Mean              |
-|-------------|-----------|------------------:|
-| Moq         | 1         | 62,199.5 ns       |
-| NSubstitute | 1         | 1,688.9 ns        |
-| FakeItEasy  | 1         | 2,023.3 ns        |
-| Rocks       | 1         | 46.2 ns           |
-| Imposter    | 1         | **250.8 ns**      |
-| Moq         | 10        | 634,227.3 ns      |
-| NSubstitute | 10        | 9,484.3 ns        |
-| FakeItEasy  | 10        | 9,346.8 ns        |
-| Rocks       | 10        | 587.9 ns          |
-| Imposter    | 10        | **2,419.2 ns**    |
-| Moq         | 100       | 6,619,086.5 ns    |
-| NSubstitute | 100       | 224,316.0 ns      |
-| FakeItEasy  | 100       | 228,507.4 ns      |
-| Rocks       | 100       | 28,261.9 ns       |
-| Imposter    | 100       | **36,118.9 ns**   |
-| Moq         | 1000      | 98,252,350.2 ns   |
-| NSubstitute | 1000      | 25,223,566.8 ns   |
-| FakeItEasy  | 1000      | 19,298,298.4 ns   |
-| Rocks       | 1000      | 2,574,515.3 ns    |
-| Imposter    | 1000      | **4,011,942.7 ns**|
-
-
-Allocated Memory
-
-| Method      | Iteration | Allocated    |
-|-------------|-----------|-------------:|
-| Moq         | 1         | 12.85 KB     |
-| NSubstitute | 1         | 8.05 KB      |
-| FakeItEasy  | 1         | 5.68 KB      |
-| Rocks       | 1         | 0.30 KB      |
-| Imposter    | 1         | **2.73 KB**  |
-| Moq         | 10        | 115.07 KB    |
-| NSubstitute | 10        | 28.46 KB     |
-| FakeItEasy  | 10        | 35.06 KB     |
-| Rocks       | 10        | 1.84 KB      |
-| Imposter    | 10        | **25.65 KB** |
-| Moq         | 100       | 1412.43 KB   |
-| NSubstitute | 100       | 236.98 KB    |
-| FakeItEasy  | 100       | 715.71 KB    |
-| Rocks       | 100       | 17.31 KB     |
-| Imposter    | 100       | **254.87 KB**|
-| Moq         | 1000      | 42221.29 KB  |
-| NSubstitute | 1000      | 2312.93 KB   |
-| FakeItEasy  | 1000      | 45797.90 KB  |
-| Rocks       | 1000      | 172.00 KB    |
-| Imposter    | 1000      | **2547.05 KB**|
+| Method      | Iteration |     Execution Time | Allocated Memory | 
+|-------------|-----------|-------------------:|-----------------:| 
+| Moq         | 1         |        62,199.5 ns |         12.85 KB | 
+| NSubstitute | 1         |         1,688.9 ns |          8.05 KB | 
+| FakeItEasy  | 1         |         2,023.3 ns |          5.68 KB | 
+| Rocks       | 1         |            46.2 ns |          0.30 KB | 
+| Imposter    | 1         |       **250.8 ns** |      **2.73 KB** | 
+| Moq         | 10        |       634,227.3 ns |        115.07 KB | 
+| NSubstitute | 10        |         9,484.3 ns |         28.46 KB | 
+| FakeItEasy  | 10        |         9,346.8 ns |         35.06 KB | 
+| Rocks       | 10        |           587.9 ns |          1.84 KB | 
+| Imposter    | 10        |     **2,419.2 ns** |     **25.65 KB** | 
+| Moq         | 100       |     6,619,086.5 ns |       1412.43 KB | 
+| NSubstitute | 100       |       224,316.0 ns |        236.98 KB | 
+| FakeItEasy  | 100       |       228,507.4 ns |        715.71 KB | 
+| Rocks       | 100       |        28,261.9 ns |         17.31 KB | 
+| Imposter    | 100       |    **36,118.9 ns** |    **254.87 KB** | 
+| Moq         | 1000      |    98,252,350.2 ns |      42221.29 KB | 
+| NSubstitute | 1000      |    25,223,566.8 ns |       2312.93 KB | 
+| FakeItEasy  | 1000      |    19,298,298.4 ns |      45797.90 KB | 
+| Rocks       | 1000      |     2,574,515.3 ns |        172.00 KB | 
+| Imposter    | 1000      | **4,011,942.7 ns** |   **2547.05 KB** | 
 
 
 Benchmark Environment
@@ -195,9 +170,6 @@ DefaultJob : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
 ```
 </details>
 
-
-See other benchmarks [benchmark](https://github.com/themidnightgospel/Imposter/blob/3172c333603fd2d76031b20be39753a9b62f31c3/benchmarks/Imposter.Benchmarks/ImposterVsMoqVsNSubstitute/SimpleMethodMockingBenchmarks.cs#L12)
-
 ## ✨ Feature-Rich
 
 - [Method Impersonation](https://themidnightgospel.github.io/Imposter/latest/methods/)
@@ -210,10 +182,6 @@ See other benchmarks [benchmark](https://github.com/themidnightgospel/Imposter/b
 - [Use Base implementation](https://themidnightgospel.github.io/Imposter/latest/base-implementation/)
 - [Async Support](https://themidnightgospel.github.io/Imposter/latest/methods/#async-methods)
 - [Protected members Impersonation](https://themidnightgospel.github.io/Imposter/latest/methods/protected-members/)
-
-
-## Docs
-Docs: https://themidnightgospel.github.io/Imposter/
 
 ## 📜 MIT License
 

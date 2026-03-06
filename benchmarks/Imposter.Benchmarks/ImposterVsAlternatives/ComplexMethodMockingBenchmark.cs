@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
 using Imposter.Abstractions;
+using Imposter.Benchmarks.ImposterVsAlternatives;
 using Imposter.Benchmarks.ImposterVsMoqVsNSubstitute;
 using Moq;
 using NSubstitute;
@@ -12,7 +13,7 @@ using RocksArg = Rocks.Arg;
 [assembly: GenerateImposter(typeof(ComplexMethodMockingBenchmark.IComplexService))]
 [assembly: Rock(typeof(ComplexMethodMockingBenchmark.IComplexService), BuildType.Create)]
 
-namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute;
+namespace Imposter.Benchmarks.ImposterVsAlternatives;
 
 [MemoryDiagnoser]
 public class ComplexMethodMockingBenchmark

@@ -140,6 +140,19 @@ namespace Imposter.Tests.Features.Docs.ArgumentsMatching
         }
 
         [Fact]
+        public void GivenArgAny_WhenUsingUntypedWildcard_ShouldMatchAnyArguments()
+        {
+            var imposter = new IArgumentMatchingServiceImposter();
+            var service = imposter.Instance();
+
+            // Arg.Any is implicitly converted to Arg<T>.Any() for each parameter
+            imposter.Add(Arg.Any, Arg.Any).Returns(99);
+
+            service.Add(1, 2).ShouldBe(99);
+            service.Add(100, 0).ShouldBe(99);
+        }
+
+        [Fact]
         public void GivenArgumentMatchers_WhenMatchingOutParameters_ShouldPopulateOutAndReturnStatus()
         {
             var imposter = new IArgumentMatchingServiceImposter();

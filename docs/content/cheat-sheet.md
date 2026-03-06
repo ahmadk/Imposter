@@ -35,6 +35,7 @@ imp.GetNumber().Returns(1).Then().Returns(2).Then().Throws<InvalidOperationExcep
 imp.Increment(Arg<int>.Any()).Returns(v => v + 1);
 imp.Increment(Arg<int>.Is(x => x > 10)).Returns(100);
 imp.Increment(5).Returns(50); // implicit Arg<int>
+imp.Add(Arg.Any, Arg.Any).Returns(99); // untyped wildcard shorthand
 
 // Ref/Out/In
 imp.GenericAllRefKind<int, string, double, bool, int>(OutArg<int>.Any(), Arg<string>.Any(), Arg<double>.Any(), Arg<bool[]>.Any())

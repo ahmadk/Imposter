@@ -15,6 +15,9 @@ A compact list of the core types and fluent members you’ll use most. This is n
 
 ## Argument Matchers
 
+- `Arg`
+  - `static AnyArgMarker Any` — untyped wildcard; implicitly converts to `Arg<T>.Any()` for each parameter type
+
 - `Arg<T>`
   - `static Arg<T> Is(Func<T, bool> predicate)`
   - `static Arg<T> Is(T? value)`
@@ -29,6 +32,7 @@ A compact list of the core types and fluent members you’ll use most. This is n
   - `static Arg<T> IsDefault()`
   - `static Arg<T> Any()`
   - `static implicit operator Arg<T>(T value)`
+  - `static implicit operator Arg<T>(AnyArgMarker _)` — enables `Arg.Any` shorthand
 
 - `OutArg<T>`
   - `static OutArg<T> Any()` — wildcard for `out` parameters

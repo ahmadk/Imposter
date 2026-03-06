@@ -1,12 +1,12 @@
 namespace Imposter.Abstractions;
 
 /// <summary>
-/// Marker class to be implecitly converted to a generic Arg
+/// Marker class to be implicitly converted to a generic Arg
 /// </summary>
 public struct AnyArgMarker { }
 
 /// <summary>
-/// Provides untiped general argument matcher used when configuring method, property, indexer
+/// Provides untyped general argument matcher used when configuring method, property, indexer
 /// and event setups with Imposter.
 /// </summary>
 public static class Arg
@@ -206,7 +206,7 @@ public class Arg<T>
     /// Implicitly converts a value of type AnyArgMarker to an <see cref="Arg{T}"/>
     /// that matches that specific value.
     /// </summary>
-    public static implicit operator Arg<T>(AnyArgMarker _) => Arg<T>.Any();
+    public static implicit operator Arg<T>(AnyArgMarker _) => Any();
 }
 
 /// <summary>
@@ -237,7 +237,7 @@ public class OutArg<T>
     /// Always returns <see langword="true"/>. Out arguments cannot be constrained and are treated as wildcards.
     /// Use <see cref="Arg{T}"/> (for example, <c>Arg&lt;T&gt;.Is(...)</c>) for in/ref arguments when matching specific values is required.
     /// </summary>
-    /// <param name="value">Ignored.</param>
+    /// <param name="_">Ignored.</param>
     /// <returns>Always <see langword="true"/>.</returns>
-    public bool Matches(T value) => true;
+    public bool Matches(T _) => true;
 }

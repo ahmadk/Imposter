@@ -14,7 +14,7 @@ using global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute;
 namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
-    public sealed class ICalculatorImposter : global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.SimpleMethodMockingBenchmarks.ICalculator>
+    public sealed class ICalculatorImposter : global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsAlternatives.SimpleMethodMockingBenchmarks.ICalculator>
     {
         private readonly SquareMethodImposter _squareMethodImposter;
         private readonly SquareMethodInvocationHistoryCollection _squareMethodInvocationHistoryCollection = new SquareMethodInvocationHistoryCollection();
@@ -25,7 +25,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 
         private readonly global::Imposter.Abstractions.ImposterMode _invocationBehavior;
         private ImposterTargetInstance _imposterInstance;
-        global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.SimpleMethodMockingBenchmarks.ICalculator global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.SimpleMethodMockingBenchmarks.ICalculator>.Instance()
+        global::Imposter.Benchmarks.ImposterVsAlternatives.SimpleMethodMockingBenchmarks.ICalculator global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsAlternatives.SimpleMethodMockingBenchmarks.ICalculator>.Instance()
         {
             return _imposterInstance;
         }
@@ -410,7 +410,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
         }
 
         [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
-        class ImposterTargetInstance : global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.SimpleMethodMockingBenchmarks.ICalculator
+        class ImposterTargetInstance : global::Imposter.Benchmarks.ImposterVsAlternatives.SimpleMethodMockingBenchmarks.ICalculator
         {
             private readonly ICalculatorImposter _imposter;
             public ImposterTargetInstance(ICalculatorImposter _imposter)
@@ -422,6 +422,15 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
             {
                 return _imposter._squareMethodImposter.Invoke(input);
             }
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
+    public static class ICalculatorImposterExtensions
+    {
+        extension(global::Imposter.Benchmarks.ImposterVsAlternatives.SimpleMethodMockingBenchmarks.ICalculator imposter)
+        {
+            public static global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ICalculatorImposter Imposter(global::Imposter.Abstractions.ImposterMode invocationBehavior = global::Imposter.Abstractions.ImposterMode.Implicit) => new global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ICalculatorImposter(invocationBehavior);
         }
     }
 }

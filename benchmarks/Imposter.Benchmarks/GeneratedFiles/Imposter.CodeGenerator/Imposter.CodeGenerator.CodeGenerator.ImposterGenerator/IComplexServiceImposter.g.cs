@@ -14,32 +14,32 @@ using global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute;
 namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
-    public sealed class IComplexServiceImposter : global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.IComplexService>
+    public sealed class IComplexServiceImposter : global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.IComplexService>
     {
         private readonly ProcessMethodImposter _processMethodImposter;
         private readonly ProcessMethodInvocationHistoryCollection _processMethodInvocationHistoryCollection = new ProcessMethodInvocationHistoryCollection();
-        public IProcessMethodImposterBuilder Process(global::Imposter.Abstractions.Arg<string> route, global::Imposter.Abstractions.Arg<int> severity, global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext> context)
+        public IProcessMethodImposterBuilder Process(global::Imposter.Abstractions.Arg<string> route, global::Imposter.Abstractions.Arg<int> severity, global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext> context)
         {
             return new ProcessMethodImposter.Builder(_processMethodImposter, _processMethodInvocationHistoryCollection, new ProcessArgumentsCriteria(route, severity, context));
         }
 
         private readonly global::Imposter.Abstractions.ImposterMode _invocationBehavior;
         private ImposterTargetInstance _imposterInstance;
-        global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.IComplexService global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.IComplexService>.Instance()
+        global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.IComplexService global::Imposter.Abstractions.IHaveImposterInstance<global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.IComplexService>.Instance()
         {
             return _imposterInstance;
         }
 
-        public delegate string ProcessDelegate(string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context);
-        public delegate void ProcessCallbackDelegate(string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context);
-        public delegate global::System.Exception ProcessExceptionGeneratorDelegate(string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context);
+        public delegate string ProcessDelegate(string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context);
+        public delegate void ProcessCallbackDelegate(string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context);
+        public delegate global::System.Exception ProcessExceptionGeneratorDelegate(string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context);
         [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
         public class ProcessArguments
         {
             public string route;
             public int severity;
-            public global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context;
-            internal ProcessArguments(string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context)
+            public global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context;
+            internal ProcessArguments(string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context)
             {
                 this.route = route;
                 this.severity = severity;
@@ -52,9 +52,9 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
         {
             public global::Imposter.Abstractions.Arg<string> route { get; }
             public global::Imposter.Abstractions.Arg<int> severity { get; }
-            public global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext> context { get; }
+            public global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext> context { get; }
 
-            public ProcessArgumentsCriteria(global::Imposter.Abstractions.Arg<string> route, global::Imposter.Abstractions.Arg<int> severity, global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext> context)
+            public ProcessArgumentsCriteria(global::Imposter.Abstractions.Arg<string> route, global::Imposter.Abstractions.Arg<int> severity, global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext> context)
             {
                 this.route = route;
                 this.severity = severity;
@@ -125,7 +125,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
         [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
         class ProcessMethodInvocationImposterGroup
         {
-            internal static ProcessMethodInvocationImposterGroup Default = new ProcessMethodInvocationImposterGroup(new ProcessArgumentsCriteria(global::Imposter.Abstractions.Arg<string>.Any(), global::Imposter.Abstractions.Arg<int>.Any(), global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext>.Any()));
+            internal static ProcessMethodInvocationImposterGroup Default = new ProcessMethodInvocationImposterGroup(new ProcessArgumentsCriteria(global::Imposter.Abstractions.Arg<string>.Any(), global::Imposter.Abstractions.Arg<int>.Any(), global::Imposter.Abstractions.Arg<global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext>.Any()));
             internal ProcessArgumentsCriteria ArgumentsCriteria { get; }
 
             private readonly global::System.Collections.Concurrent.ConcurrentQueue<MethodInvocationImposter> _invocationImposters = new global::System.Collections.Concurrent.ConcurrentQueue<MethodInvocationImposter>();
@@ -157,7 +157,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
                 return _lastestInvocationImposter;
             }
 
-            public string Invoke(global::Imposter.Abstractions.ImposterMode invocationBehavior, string methodDisplayName, string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context)
+            public string Invoke(global::Imposter.Abstractions.ImposterMode invocationBehavior, string methodDisplayName, string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context)
             {
                 var invocationImposter = GetInvocationImposter();
                 if (invocationImposter == null)
@@ -187,7 +187,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
                 private readonly global::System.Collections.Concurrent.ConcurrentQueue<ProcessCallbackDelegate> _callbacks = new global::System.Collections.Concurrent.ConcurrentQueue<ProcessCallbackDelegate>();
                 internal bool IsEmpty => (_resultGenerator == null) && (_callbacks.Count == 0);
 
-                public string Invoke(global::Imposter.Abstractions.ImposterMode invocationBehavior, string methodDisplayName, string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context)
+                public string Invoke(global::Imposter.Abstractions.ImposterMode invocationBehavior, string methodDisplayName, string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context)
                 {
                     if (_resultGenerator == null)
                     {
@@ -220,7 +220,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 
                 internal void Returns(string value)
                 {
-                    _resultGenerator = (string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context) =>
+                    _resultGenerator = (string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context) =>
                     {
                         return value;
                     };
@@ -228,13 +228,13 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 
                 internal void Throws(ProcessExceptionGeneratorDelegate exceptionGenerator)
                 {
-                    _resultGenerator = (string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context) =>
+                    _resultGenerator = (string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context) =>
                     {
                         throw exceptionGenerator(route, severity, context);
                     };
                 }
 
-                internal static string DefaultResultGenerator(string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context)
+                internal static string DefaultResultGenerator(string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context)
                 {
                     return default !;
                 }
@@ -303,7 +303,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
                 return null;
             }
 
-            public string Invoke(string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context)
+            public string Invoke(string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context)
             {
                 var arguments = new ProcessArguments(route, severity, context);
                 var matchingInvocationImposterGroup = FindMatchingInvocationImposterGroup(arguments);
@@ -350,7 +350,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 
                 IProcessMethodInvocationImposterGroupContinuation IProcessMethodInvocationImposterGroup.Throws<TException>()
                 {
-                    _currentInvocationImposter.Throws((string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context) =>
+                    _currentInvocationImposter.Throws((string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context) =>
                     {
                         throw new TException();
                     });
@@ -359,7 +359,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 
                 IProcessMethodInvocationImposterGroupContinuation IProcessMethodInvocationImposterGroup.Throws(global::System.Exception exception)
                 {
-                    _currentInvocationImposter.Throws((string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context) =>
+                    _currentInvocationImposter.Throws((string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context) =>
                     {
                         throw exception;
                     });
@@ -368,7 +368,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
 
                 IProcessMethodInvocationImposterGroupContinuation IProcessMethodInvocationImposterGroup.Throws(ProcessExceptionGeneratorDelegate exceptionGenerator)
                 {
-                    _currentInvocationImposter.Throws((string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context) =>
+                    _currentInvocationImposter.Throws((string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context) =>
                     {
                         throw exceptionGenerator.Invoke(route, severity, context);
                     });
@@ -418,7 +418,7 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
         }
 
         [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
-        class ImposterTargetInstance : global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.IComplexService
+        class ImposterTargetInstance : global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.IComplexService
         {
             private readonly IComplexServiceImposter _imposter;
             public ImposterTargetInstance(IComplexServiceImposter _imposter)
@@ -426,10 +426,19 @@ namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute
                 this._imposter = _imposter;
             }
 
-            public string Process(string route, int severity, global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.ComplexMethodMockingBenchmark.OperationContext context)
+            public string Process(string route, int severity, global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.OperationContext context)
             {
                 return _imposter._processMethodImposter.Invoke(route, severity, context);
             }
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("Imposter.CodeGenerator", "0.1.0.0")]
+    public static class IComplexServiceImposterExtensions
+    {
+        extension(global::Imposter.Benchmarks.ImposterVsAlternatives.ComplexMethodMockingBenchmark.IComplexService imposter)
+        {
+            public static global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.IComplexServiceImposter Imposter(global::Imposter.Abstractions.ImposterMode invocationBehavior = global::Imposter.Abstractions.ImposterMode.Implicit) => new global::Imposter.Benchmarks.ImposterVsMoqVsNSubstitute.IComplexServiceImposter(invocationBehavior);
         }
     }
 }

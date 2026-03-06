@@ -1,6 +1,7 @@
 using BenchmarkDotNet.Attributes;
 using FakeItEasy;
 using Imposter.Abstractions;
+using Imposter.Benchmarks.ImposterVsAlternatives;
 using Imposter.Benchmarks.ImposterVsMoqVsNSubstitute;
 using Moq;
 using NSubstitute;
@@ -9,7 +10,7 @@ using Rocks;
 [assembly: GenerateImposter(typeof(SimpleMethodMockingBenchmarks.ICalculator))]
 [assembly: Rock(typeof(SimpleMethodMockingBenchmarks.ICalculator), BuildType.Create)]
 
-namespace Imposter.Benchmarks.ImposterVsMoqVsNSubstitute;
+namespace Imposter.Benchmarks.ImposterVsAlternatives;
 
 [MemoryDiagnoser]
 public class SimpleMethodMockingBenchmarks

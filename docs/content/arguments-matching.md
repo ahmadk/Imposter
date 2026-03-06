@@ -44,6 +44,22 @@ Target type used in examples:
     service.Add(5, 5);  // 0 (default(int) in Implicit mode)
     ```
 
+## Untyped wildcard — `Arg.Any`
+
+When every argument should be a wildcard and you don't want to spell out the generic type, use the shorthand `Arg.Any`. It is implicitly converted to `Arg<T>` for each parameter, so it works in any position.
+
+!!! example
+    ```csharp {data-gh-link="https://github.com/themidnightgospel/Imposter/blob/master/tests/Imposter.Tests/Features/Docs/ArgumentsMatching/ArgumentsMatchingTests.cs#L145"}
+    var imposter = new IArgumentMatchingServiceImposter();
+    var service = imposter.Instance();
+
+    // Arg.Any is implicitly converted to Arg<T>.Any() for each parameter
+    imposter.Add(Arg.Any, Arg.Any).Returns(99);
+
+    service.Add(1, 2);   // 99
+    service.Add(100, 0); // 99
+    ```
+
 ## Predicates and ranges
 
 !!! example
@@ -154,6 +170,7 @@ Target type used in examples:
 
 ## Arg API reference
 
+- `Arg.Any` — untyped wildcard; implicitly converts to `Arg<T>.Any()` for each parameter type.
 - `Arg<T>.Any()` — wildcard that matches any value of `T`.
 - `Arg<T>.Is(T value)` / `Arg<T>.Is(T value, IEqualityComparer<T> comparer)` — matches when the argument equals the provided value (optionally using a custom comparer).
 - `Arg<T>.Is(Func<T, bool> predicate)` — matches when the predicate returns `true`.

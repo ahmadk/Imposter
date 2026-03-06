@@ -13,7 +13,7 @@
     <!-- Single NuGet package that contains analyzer + runtime -->
     <PackageId>Imposter</PackageId>
     <Version>0.1.0</Version>
-    <Description>Imposter — A mocking library that's using roslyn source generators to achieve high performance and low memory footprint.</Description>
+    <Description>Imposter — Mocking library with the perfect blalance of Performance and Intuitive API</Description>
     <PackageTags>source generator;mock;stub;imposter;roslyn;testing</PackageTags>
 
     <Authors>Bitchiko Tchelidze</Authors>
