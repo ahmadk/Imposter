@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    Mocking library with the perfect blalance of Performance and Intuitive API
+    Mocking library with the perfect balance of Performance and Intuitive API
 </p>
 
 [![Build, Test, and Format verification](https://github.com/themidnightgospel/Imposter/actions/workflows/build-and-test.yml/badge.svg?branch=master)](https://github.com/themidnightgospel/Imposter/actions/workflows/build-and-test.yml)
@@ -83,9 +83,7 @@ Imposter supports not only methods, but also properties, events and indexers.
 
 ## 🔀 Implicit and Explicit Modes
 
-Choose how unmocked members behave. **Implicit** mode returns defaults silently — great for prototyping. **Explicit** mode throws on any call without a setup — ideal for unit tests that must be precise.
-
-See more [here](https://themidnightgospel.github.io/Imposter/latest/implicit-vs-explicit/)
+Choose how unmocked members behave. **Implicit** mode returns defaults silently — great for prototyping. **Explicit** mode throws on any call without a setup — ideal for unit tests that must be precise. See more [here](https://themidnightgospel.github.io/Imposter/latest/implicit-vs-explicit/)
 
 ## 🧵 Thread-safe by design
 
