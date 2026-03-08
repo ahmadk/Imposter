@@ -275,9 +275,7 @@ internal static class IndexerImposterBuilder
 
     private static MethodDeclarationSyntax BuildGetForwarder(in ImposterIndexerMetadata indexer)
     {
-        var parameters = indexer
-            .Core.Parameters.Select(parameter => parameter.ParameterSyntax)
-            .ToList();
+        var parameters = indexer.Core.ParameterSyntaxes.ToList();
 
         ParameterSyntax? getterBaseImplementationParameter = null;
         if (indexer.Core.GetterSupportsBaseImplementation)
@@ -291,9 +289,7 @@ internal static class IndexerImposterBuilder
             parameters.Add(getterBaseImplementationParameter);
         }
 
-        var invocationArguments = indexer
-            .Core.Parameters.Select(parameter => Argument(IdentifierName(parameter.Name)))
-            .ToList();
+        var invocationArguments = indexer.Core.ParameterArguments.ToList();
 
         if (
             indexer.Core.GetterSupportsBaseImplementation
@@ -322,9 +318,7 @@ internal static class IndexerImposterBuilder
 
     private static MethodDeclarationSyntax BuildSetForwarder(in ImposterIndexerMetadata indexer)
     {
-        var parameters = indexer
-            .Core.Parameters.Select(parameter => parameter.ParameterSyntax)
-            .ToList();
+        var parameters = indexer.Core.ParameterSyntaxes.ToList();
 
         var setterValueParameterName = indexer.SetterImplementation.ValueParameterName;
         parameters.Add(
@@ -343,9 +337,7 @@ internal static class IndexerImposterBuilder
             parameters.Add(setterBaseImplementationParameter);
         }
 
-        var invocationArguments = indexer
-            .Core.Parameters.Select(parameter => Argument(IdentifierName(parameter.Name)))
-            .ToList();
+        var invocationArguments = new List<ArgumentSyntax>(indexer.Core.ParameterArguments);
 
         invocationArguments.Add(Argument(IdentifierName(setterValueParameterName)));
         invocationArguments.Add(
@@ -1716,18 +1708,13 @@ internal static class IndexerImposterBuilder
     {
         var setter = indexer.SetterImplementation;
         var argumentsVariable = IdentifierName(indexer.GetterImplementation.ArgumentsVariableName);
-        var parameters = indexer
-            .Core.Parameters.Select(parameter => parameter.ParameterSyntax)
-            .Concat([
-                Parameter(Identifier(setter.ValueParameterName)).WithType(indexer.Core.TypeSyntax),
-            ])
-            .ToList();
-
-        parameters.Add(
+        var parameters = new List<ParameterSyntax>(indexer.Core.ParameterSyntaxes)
+        {
+            Parameter(Identifier(setter.ValueParameterName)).WithType(indexer.Core.TypeSyntax),
             Parameter(Identifier(setter.BaseImplementationParameterName))
                 .WithType(indexer.Core.AsSystemActionType.ToNullableType())
-                .WithDefault(EqualsValueClause(Null))
-        );
+                .WithDefault(EqualsValueClause(Null)),
+        };
 
         var callbackMatchedIdentifier = IdentifierName("matchedCallback");
 
@@ -2254,15 +2241,12 @@ internal static class IndexerImposterBuilder
         var explicitInvocationBehavior = WellKnownTypes.Imposter.Abstractions.ImposterMode.Dot(
             IdentifierName("Explicit")
         );
-        var parameters = indexer
-            .Core.Parameters.Select(parameter => parameter.ParameterSyntax)
-            .ToList();
-
-        parameters.Add(
+        var parameters = new List<ParameterSyntax>(indexer.Core.ParameterSyntaxes)
+        {
             Parameter(Identifier(indexer.GetterImplementation.BaseImplementationParameterName))
                 .WithType(indexer.Core.AsSystemFuncType.ToNullableType())
-                .WithDefault(EqualsValueClause(Null))
-        );
+                .WithDefault(EqualsValueClause(Null)),
+        };
 
         var tryStatements = new List<StatementSyntax>
         {

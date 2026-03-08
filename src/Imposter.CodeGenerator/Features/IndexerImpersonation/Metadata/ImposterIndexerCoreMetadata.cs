@@ -3,6 +3,7 @@ using Imposter.CodeGenerator.Helpers;
 using Imposter.CodeGenerator.SyntaxHelpers;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace Imposter.CodeGenerator.Features.IndexerImpersonation.Metadata;
 
@@ -17,6 +18,10 @@ internal readonly ref struct ImposterIndexerCoreMetadata
     internal readonly string DisplayName;
 
     internal readonly IndexerParameterMetadata[] Parameters;
+
+    internal readonly ParameterSyntax[] ParameterSyntaxes;
+
+    internal readonly ArgumentSyntax[] ParameterArguments;
 
     internal readonly NameSet ParameterNameSet;
 
@@ -43,6 +48,10 @@ internal readonly ref struct ImposterIndexerCoreMetadata
         AsSystemActionType = WellKnownTypes.System.Action;
         Parameters = property
             .Parameters.Select(parameter => new IndexerParameterMetadata(parameter))
+            .ToArray();
+        ParameterSyntaxes = Parameters.Select(parameter => parameter.ParameterSyntax).ToArray();
+        ParameterArguments = Parameters
+            .Select(parameter => Argument(IdentifierName(parameter.Name)))
             .ToArray();
         ParameterNameSet = new NameSet(Parameters.Select(parameter => parameter.Name));
         var containingType = property.ContainingType;
